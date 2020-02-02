@@ -86,16 +86,16 @@ void loop()
                     "\r\n\r\n");
   
     Serial.println("request sent");
-    String line = client.readStringUntil('\n');
     while (client.connected()) 
     {
-      
+      String line = client.readStringUntil('\n');
       if (line == "\r") 
       {
         Serial.println("headers received");
         break;
       }
     }
+    String line = client.readStringUntil('\n');
     Serial.println("reply was ");
     Serial.println("==========");
     Serial.println(line);
